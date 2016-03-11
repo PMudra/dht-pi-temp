@@ -1,11 +1,15 @@
 var schedule = require('node-schedule');
 var sqLite3 = require('sqlite3').verbose();
 var debug = require('debug')('dht-pi-temp:task');
+var nconf = require('nconf');
+
+nconf.argv().env().file({file: './config.json'});
+debug("dht:pin=" + nconf.get('dht:pin'));
 
 function getData() {
     try {
         var dht = require('dht-sensor');
-        var current = dht.read(11, 18); // 11 : DHT11, 18 : BCM GPIO
+        var current = dht.read(11, config.get('dht:pin'));
         return current;
     } catch (err) {
         debug("Cannot access dht sensor");
