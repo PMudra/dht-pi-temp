@@ -1,5 +1,8 @@
 # dht-pi-temp
 
+This web service uses [dht-sensor](https://github.com/entercritical/dht-sensor) to collect temperature and humidity data every minute and stores it in a sqlite database.
+This data is exposed with a rest api.
+
 ## Setup
 
 1. Connect your dht sensor to your pi
