@@ -2,6 +2,17 @@ var schedule = require('node-schedule');
 var sqLite3 = require('sqlite3').verbose();
 var debug = require('debug')('dht-pi-temp:task');
 
+function getData() {
+    try {
+        var dht = require('dht-sensor');
+        var current = dht.read(11, 18); // 11 : DHT11, 18 : BCM GPIO
+        return current;
+    } catch (err) {
+        debug("Cannot access dht sensor");
+        return {temperature: -1, humidity: -1};
+    }
+}
+
 schedule.scheduleJob('*/1 * * * *', function () {
 
     var db = new sqLite3.Database('./sqlite.db');
@@ -9,14 +20,13 @@ schedule.scheduleJob('*/1 * * * *', function () {
     db.serialize(function () {
         db.run("CREATE TABLE IF NOT EXISTS weather ('id' INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, 'datetime' DATETIME DEFAULT CURRENT_TIMESTAMP, 'temperature' REAL, 'humidity' REAL)");
 
-        // todo
-        db.run("INSERT INTO weather ('id','temperature','humidity') VALUES (NULL,'0.12','0.13')");
+        var current = getData();
 
+        db.run("INSERT INTO weather ('id','temperature','humidity') VALUES (NULL,'" + current.temperature + "','" + current.humidity + "')");
+        debug("Data written to db: temperature=" + current.temperature + ", humidity=" + current.humidity);
     });
 
     db.close();
 
-    debug("data written");
 });
-
 
