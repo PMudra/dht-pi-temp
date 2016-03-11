@@ -2,6 +2,9 @@
 logs
 *.log
 
+# database storage
+sqlite.db
+
 # Runtime data
 pids
 *.pid
