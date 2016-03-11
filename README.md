@@ -13,11 +13,12 @@ This data is exposed with a rest api.
 4. Run ```npm install```
 5. Configure config.json
     * Find the BCM number of your pin https://pinout.xyz/
-6. Run ```npm start```
+    * dht.sensor must be either 11 (for DHT11) or 22 (for DHT22)
+6. Run ```sudo npm start``` (root required to read sensor data)
 
 ## Debug
 
-Run ```DEBUG=dht-pi-temp:* npm start```
+Run ```sudo DEBUG=dht-pi-temp:* npm start```
 
 ## Use
 

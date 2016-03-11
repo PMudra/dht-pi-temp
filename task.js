@@ -5,11 +5,12 @@ var nconf = require('nconf');
 
 nconf.argv().env().file({file: './config.json'});
 debug("dht:pin=" + nconf.get('dht:pin'));
+debug("dht:sensor=" + nconf.get('dht:sensor'));
 
 function getData() {
     try {
         var dht = require('dht-sensor');
-        var current = dht.read(11, config.get('dht:pin'));
+        var current = dht.read(nconf.get('dht:sensor'), nconf.get('dht:pin'));
         return current;
     } catch (err) {
         debug("Cannot access dht sensor");
