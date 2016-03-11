@@ -1,7 +1,16 @@
 {
   "name": "dht-pi-temp",
   "version": "1.0.0",
+  "description": "Web service that delivers basic temperature data using dht sensor on raspberry pi",
   "private": true,
+  "license": "MIT",
+  "author": {
+    "name": "Philipp Mudra"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/PMudra/dht-pi-temp.git"
+  },
   "scripts": {
     "start": "node ./bin/www"
   },
