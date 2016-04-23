@@ -1,8 +1,14 @@
 sudo: required
 
+language: node_js
+node_js:
+  - "5"
+
 services:
   - docker
 
+install: true
+script: true
 before_deploy:
   - docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
   - docker build -t $DOCKER_USERNAME/rpi-dht-temp .
