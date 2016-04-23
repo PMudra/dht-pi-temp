@@ -12,3 +12,5 @@ script: true
 after_success:
   - docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
   - docker build -t $DOCKER_USERNAME/rpi-dht-temp .
+  - docker images
+  - docker push $DOCKER_USERNAME/rpi-dht-temp
