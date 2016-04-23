@@ -6,7 +6,8 @@ This data is exposed with a rest api.
 ## Setup
 
 1. Connect your dht sensor to your pi
-2. Check if your sensor is working
+    * This might help: https://learn.adafruit.com/dht/connecting-to-a-dhtxx-sensor
+2. Check if your sensor is working (optional)
     * https://github.com/entercritical/dht-sensor
     * https://github.com/adafruit/Adafruit_Python_DHT
 3. Get the sources of this repository
