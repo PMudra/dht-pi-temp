@@ -28,3 +28,7 @@ Run ```sudo DEBUG=dht-pi-temp:* npm start```
 Url: ```GET /temp```
 
 Example response: ```{"temperature":21}```
+
+## Docker
+
+```docker run -d --cap-add SYS_RAWIO --device /dev/mem -p 3000:3000/tcp pmudra/rpi-dht-web-service```
