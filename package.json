@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/PMudra/dht-pi-temp.git"
+    "url": "https://github.com/PMudra/rpi-dht-web-service.git"
   },
   "scripts": {
     "start": "node ./bin/www"
