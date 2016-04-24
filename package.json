@@ -1,5 +1,5 @@
 {
-  "name": "dht-pi-temp",
+  "name": "rpi-dht-web-service",
   "version": "1.1.0",
   "description": "Web service that delivers basic temperature and humidity data using dht sensor and raspberry pi",
   "private": true,

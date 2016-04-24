@@ -1,6 +1,4 @@
 {
-  "dht": {
-    "pin": 18,
-    "sensor": 11
-  }
+  "pin": 18,
+  "sensor": 11
 }
